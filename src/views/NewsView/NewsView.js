@@ -10,10 +10,10 @@ export default function NewsView() {
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
 
-  const scrollHandler = e => {
+  const scrollHandler = event => {
     if (
-      e.target.documentElement.scrollHeight -
-        (e.target.documentElement.scrollTop + window.innerHeight) <
+      event.target.documentElement.scrollHeight -
+        (event.target.documentElement.scrollTop + window.innerHeight) <
       100
     ) {
       setFetching(true);
@@ -47,7 +47,7 @@ export default function NewsView() {
           const { data } = response;
 
           setTrendingFeed([...trendingFeed, ...data]);
-          setCurrentPage(prevState => prevState + 1);
+          setCurrentPage(previousState => previousState + 1);
         })
         .catch(function (error) {
           console.error(error);
@@ -59,7 +59,7 @@ export default function NewsView() {
 
   return (
     <div className={styles.wrap}>
-      {trendingFeed.length ? (
+      {trendingFeed.length > 0 ? (
         trendingFeed.map(user => (
           <div className={styles.list_noorder} key={shortid.generate()}>
             <video width="300px" controls="controls">

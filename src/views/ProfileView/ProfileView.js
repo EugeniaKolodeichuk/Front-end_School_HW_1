@@ -97,7 +97,7 @@ export default function ProfileView() {
         </div>
       )}
       <div className={styles.wrap} key={shortid.generate()}>
-        {userFeed.length ? (
+        {userFeed.length > 0 ? (
           userFeed.map(user => (
             <div key={shortid.generate()} className={styles.list_noorder}>
               <p>
