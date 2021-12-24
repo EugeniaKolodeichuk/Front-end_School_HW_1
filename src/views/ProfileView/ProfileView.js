@@ -1,9 +1,8 @@
-import React from 'react';
 import { useParams } from 'react-router';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import shortid from 'shortid';
 import defaultImage from '../default.png';
-import styles from '../ProfileView/ProfileView.module.css';
+import styles from './ProfileView.module.css';
 import Loader from '../../components/Loader/Loader';
 
 export default function ProfileView() {

@@ -5,6 +5,7 @@
     },
     "extends": [
         "eslint:recommended",
+        "airbnb",
         "plugin:react/recommended"
     ],
     "parserOptions": {
@@ -18,5 +19,22 @@
         "react"
     ],
     "rules": {
+        
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "linebreak-style": 0,
+        "function-paren-newline": 0,
+        "react/function-component-definition": "off",
+        "prefer-arrow-callback":"off",
+        "arrow-body-style":"off",
+        "react/jsx-one-expression-per-line":"off",
+        "spaced-comment":"off",
+        "implicit-arrow-linebreak": "off",
+        "operator-linebreak": "off",
+        "global-require": "off",
+        "arrow-parens": "off",
+        "react/forbid-prop-types": "off",
+        "func-names":"off",
+        "no-console": "off"
+    }
             }
-}
+

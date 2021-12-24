@@ -1,23 +1,14 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import shortid from 'shortid';
 import { Link } from 'react-router-dom';
 import defaultImage from '../default.png';
-import styles from '../NewsView/NewsView.module.css';
+import styles from './NewsView.module.css';
 import Loader from '../../components/Loader/Loader';
 
 export default function NewsView() {
   const [trendingFeed, setTrendingFeed] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
-
-  useEffect(() => {
-    document.addEventListener('scroll', scrollHandler);
-
-    return function () {
-      document.removeEventListener('scroll', scrollHandler);
-    };
-  }, []);
 
   const scrollHandler = e => {
     if (
@@ -28,6 +19,14 @@ export default function NewsView() {
       setFetching(true);
     }
   };
+
+  useEffect(() => {
+    document.addEventListener('scroll', scrollHandler);
+
+    return function () {
+      document.removeEventListener('scroll', scrollHandler);
+    };
+  }, []);
 
   const axios = require('axios').default;
 
@@ -45,7 +44,8 @@ export default function NewsView() {
       axios
         .request(trends)
         .then(function (response) {
-          const data = response.data;
+          const { data } = response;
+
           setTrendingFeed([...trendingFeed, ...data]);
           setCurrentPage(prevState => prevState + 1);
         })
@@ -64,6 +64,12 @@ export default function NewsView() {
           <div className={styles.list_noorder} key={shortid.generate()}>
             <video width="300px" controls="controls">
               <source src={user.videoUrl} type="video/mp4;" />
+              <track
+                src={user.authorMeta.avatar}
+                kind="captions"
+                srcLang="en"
+                label="english_captions"
+              />
             </video>
             <p>{user.text}</p>
             <div className={styles.user_info}>

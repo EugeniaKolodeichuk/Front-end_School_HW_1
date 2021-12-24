@@ -1,6 +1,6 @@
 /* eslint-disable func-call-spacing */
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Loader from './components/Loader/Loader';
 
