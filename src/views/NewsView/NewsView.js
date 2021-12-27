@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import shortid from 'shortid';
 import { Link } from 'react-router-dom';
-import defaultImage from '../default.png';
+import defaultImage from '../../images/default.png';
 import styles from './NewsView.module.css';
 import Loader from '../../components/Loader/Loader';
 
@@ -39,22 +39,18 @@ export default function NewsView() {
     },
   };
 
-  useEffect(() => {
-    if (fetching) {
-      axios
-        .request(trends)
-        .then(function (response) {
-          const { data } = response;
+  useEffect(async () => {
+    try {
+      const response = await axios.request(trends);
+      const { data } = response;
 
-          setTrendingFeed([...trendingFeed, ...data]);
-          setCurrentPage(previousState => previousState + 1);
-        })
-        .catch(function (error) {
-          console.error(error);
-        })
-        .finally(() => setFetching(false));
+      setTrendingFeed([...trendingFeed, ...data]);
+      setCurrentPage(previousState => previousState + 1);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setFetching(false);
     }
-    // eslint-disable-next-line
   }, [fetching]);
 
   return (

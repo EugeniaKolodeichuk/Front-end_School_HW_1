@@ -1,7 +1,7 @@
 import { useParams } from 'react-router';
 import React, { useState, useEffect } from 'react';
 import shortid from 'shortid';
-import defaultImage from '../default.png';
+import defaultImage from '../../images/default.png';
 import styles from './ProfileView.module.css';
 import Loader from '../../components/Loader/Loader';
 
@@ -21,17 +21,15 @@ export default function ProfileView() {
       'x-rapidapi-key': 'c1257dc04cmshd888bbb072eb770p1f2b8ajsnbf16d4cd1d66',
     },
   };
-  useEffect(() => {
-    axios
-      .request(info)
-      .then(function (response) {
-        const infoData = response.data;
-        setUserInfo(infoData);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-    // eslint-disable-next-line
+
+  useEffect(async () => {
+    try {
+      const response = await axios.request(info);
+      const infoData = response.data;
+      setUserInfo(infoData);
+    } catch (error) {
+      console.error(error);
+    }
   }, [setUserInfo]);
 
   const feed = {
@@ -43,17 +41,14 @@ export default function ProfileView() {
     },
   };
 
-  useEffect(() => {
-    axios
-      .request(feed)
-      .then(function (response) {
-        const feedsData = response.data;
-        setUserFeed(feedsData);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-    // eslint-disable-next-line
+  useEffect(async () => {
+    try {
+      const response = await axios.request(feed);
+      const feedsData = response.data;
+      setUserInfo(feedsData);
+    } catch (error) {
+      console.error(error);
+    }
   }, [setUserFeed]);
 
   return (
@@ -122,9 +117,7 @@ export default function ProfileView() {
             </div>
           ))
         ) : (
-          <>
-            <Loader />
-          </>
+          <Loader />
         )}
       </div>
     </div>

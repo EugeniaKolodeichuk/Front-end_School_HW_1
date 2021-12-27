@@ -1,7 +1,6 @@
 /* eslint-disable func-call-spacing */
 import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
 import Loader from './components/Loader/Loader';
 
 const AppBar = lazy(() =>
@@ -30,7 +29,7 @@ export default function App() {
             <ProfileView />
           </Route>
 
-          <Route>
+          <Route path="/">
             <NewsView />
           </Route>
         </Switch>
