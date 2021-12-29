@@ -6,7 +6,7 @@ export default axios.create({
   baseURL,
   headers: {
     'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-    'x-rapidapi-key': 'c1257dc04cmshd888bbb072eb770p1f2b8ajsnbf16d4cd1d66',
+    'x-rapidapi-key': '98c48d70edmsh2b6af9661af19a5p11b7f7jsnbe8317f49551',
     'Content-Type': 'application/json',
   },
 });
