@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import defaultImage from '../../images/default.png';
 import styles from './NewsView.module.css';
 import Loader from '../../components/Loader/Loader';
-import { getTrends } from '../../service/app';
 
 export default function NewsView() {
   const [trendingFeed, setTrendingFeed] = useState([]);
@@ -29,20 +28,20 @@ export default function NewsView() {
     };
   }, []);
 
-  /* const axios = require('axios').default; */
+  const axios = require('axios').default;
 
-  /*const trends = {
+  const trends = {
     method: 'GET',
     url: `https://tiktok33.p.rapidapi.com/trending/feed/?limit=30&page=${currentPage}`,
     headers: {
       'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
       'x-rapidapi-key': 'c1257dc04cmshd888bbb072eb770p1f2b8ajsnbf16d4cd1d66',
     },
-  }; */
+  };
 
   useEffect(async () => {
     try {
-      const response = await getTrends(currentPage);
+      const response = await axios.request(trends);
       const { data } = response;
 
       setTrendingFeed([...trendingFeed, ...data]);
