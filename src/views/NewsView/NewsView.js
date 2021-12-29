@@ -29,7 +29,7 @@ export default function NewsView() {
     };
   }, []);
 
-  const axios = require('axios').default;
+  /* const axios = require('axios').default; */
 
   /*const trends = {
     method: 'GET',
@@ -42,7 +42,7 @@ export default function NewsView() {
 
   useEffect(async () => {
     try {
-      const response = await axios.request(getTrends(currentPage));
+      const response = await getTrends(currentPage);
       const { data } = response;
 
       setTrendingFeed([...trendingFeed, ...data]);
