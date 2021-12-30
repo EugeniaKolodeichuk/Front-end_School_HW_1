@@ -11,6 +11,8 @@ export default function ProfileView() {
   const [userFeed, setUserFeed] = useState([]);
   const [userInfo, setUserInfo] = useState([]);
 
+  //TODO remove api information to service component
+
   const axios = require('axios').default;
 
   const info = {

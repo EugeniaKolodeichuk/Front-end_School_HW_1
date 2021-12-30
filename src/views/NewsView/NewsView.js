@@ -28,6 +28,8 @@ export default function NewsView() {
     };
   }, []);
 
+  //TODO remove api information to service component
+
   const axios = require('axios').default;
 
   const trends = {
