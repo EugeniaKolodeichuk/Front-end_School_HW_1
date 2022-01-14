@@ -1,9 +1,9 @@
 import { useParams } from 'react-router';
 import React, { useState, useEffect } from 'react';
-import shortid from 'shortid';
-import defaultImage from '../../images/default.png';
+import defaultImage from '../../images/default.jpg';
 import styles from './ProfileView.module.css';
 import Loader from '../../components/Loader/Loader';
+import { getUserFeed, getUserInfo } from '../../service/app';
 
 export default function ProfileView() {
   const { uniqueId } = useParams();
@@ -11,108 +11,66 @@ export default function ProfileView() {
   const [userFeed, setUserFeed] = useState([]);
   const [userInfo, setUserInfo] = useState([]);
 
-  //TODO remove api information to service component
-
-  const axios = require('axios').default;
-
-  const info = {
-    method: 'GET',
-    url: `https://tiktok33.p.rapidapi.com/user/info/${uniqueId}`,
-    headers: {
-      'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-      'x-rapidapi-key': 'c1257dc04cmshd888bbb072eb770p1f2b8ajsnbf16d4cd1d66',
-    },
-  };
-
-  useEffect(async () => {
+  useEffect(() => {
     try {
-      const response = await axios.request(info);
-      const infoData = response.data;
-      setUserInfo(infoData);
+      getUserInfo(uniqueId).then(data => {
+        setUserInfo(data);
+      });
     } catch (error) {
       console.error(error);
     }
   }, [setUserInfo]);
 
-  const feed = {
-    method: 'GET',
-    url: `https://tiktok33.p.rapidapi.com/user/feed/${uniqueId}`,
-    headers: {
-      'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-      'x-rapidapi-key': 'c1257dc04cmshd888bbb072eb770p1f2b8ajsnbf16d4cd1d66',
-    },
-  };
-
-  useEffect(async () => {
+  useEffect(() => {
     try {
-      const response = await axios.request(feed);
-      const feedsData = response.data;
-      setUserInfo(feedsData);
+      getUserFeed(uniqueId).then(data => {
+        setUserFeed(data);
+      });
     } catch (error) {
       console.error(error);
     }
   }, [setUserFeed]);
 
   return (
-    <div key={shortid.generate()}>
-      {userInfo.user && (
-        <div key={shortid.generate()} className={styles.profile}>
+    <div key={userInfo.id}>
+      {userInfo && (
+        <div key={userInfo.uniqueId} className={styles.profile}>
           <div className={styles.list_noorder}>
-            {userInfo.user.avatarThumb ? (
+            {userInfo.avatarThumb ? (
               <img
-                key={shortid.generate()}
+                key={userInfo.nickname}
                 width="150px"
-                src={userInfo.user.avatarMedium}
-                alt={userInfo.user.nickname}
+                src={userInfo.avatarMedium}
+                alt={userInfo.nickname}
                 className={styles.avatar}
               />
             ) : (
-              <img
-                width="150px"
-                src={defaultImage}
-                alt={userInfo.user.nickname}
-              />
+              <img width="150px" src={defaultImage} alt={userInfo.nickname} />
             )}
-            <h2 className={styles.title}>{userInfo.user.nickname}</h2>
-            <p>{userInfo.user.signature}</p>
-            <p>
-              <b>{userInfo.stats.followerCount}</b> followers
-            </p>
-            <p>
-              <b>{userInfo.stats.followingCount}</b> followings
-            </p>
-            <p>
-              <b>{userInfo.stats.videoCount}</b> videos
-            </p>
-            <p>
-              <b>{userInfo.stats.heart}</b> hearts
-            </p>
+            <h2 className={styles.title}>{userInfo.nickname}</h2>
+            <p>{userInfo.signature}</p>
           </div>
           <h2 className={styles.title}>
-            Other posts created by {userInfo.user.nickname}
+            Other posts created by {userInfo.nickname}
           </h2>
         </div>
       )}
-      <div className={styles.wrap} key={shortid.generate()}>
-        {userFeed.length > 0 ? (
+      <div className={styles.wrap} key={userFeed.id}>
+        {userFeed.length ? (
           userFeed.map(user => (
-            <div key={shortid.generate()} className={styles.list_noorder}>
+            <div key={user.createTime} className={styles.list_noorder}>
               <p>
                 <b>{user.stats.playCount}</b> views
               </p>
               {user.video.originCover ? (
                 <img
-                  key={shortid.generate()}
+                  key={user.video.id}
                   src={user.video.originCover}
                   alt={user.desc}
                   className={styles.main_element}
                 />
               ) : (
-                <img
-                  width="150px"
-                  src={defaultImage}
-                  alt={userInfo.user.nickname}
-                />
+                <img width="150px" src={defaultImage} alt={userInfo.nickname} />
               )}
 
               <p>{user.desc}</p>
