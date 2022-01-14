@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import shortid from 'shortid';
 import { Link } from 'react-router-dom';
-import defaultImage from '../../images/default.png';
+import defaultImage from '../../images/default.jpg';
 import styles from './NewsView.module.css';
 import Loader from '../../components/Loader/Loader';
+import { getTrendingFeed } from '../../service/app';
 
 export default function NewsView() {
   const [trendingFeed, setTrendingFeed] = useState([]);
@@ -28,26 +28,12 @@ export default function NewsView() {
     };
   }, []);
 
-  //TODO remove api information to service component
-
-  const axios = require('axios').default;
-
-  const trends = {
-    method: 'GET',
-    url: `https://tiktok33.p.rapidapi.com/trending/feed/?limit=30&page=${currentPage}`,
-    headers: {
-      'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-      'x-rapidapi-key': 'c1257dc04cmshd888bbb072eb770p1f2b8ajsnbf16d4cd1d66',
-    },
-  };
-
-  useEffect(async () => {
+  useEffect(() => {
     try {
-      const response = await axios.request(trends);
-      const { data } = response;
-
-      setTrendingFeed([...trendingFeed, ...data]);
-      setCurrentPage(previousState => previousState + 1);
+      getTrendingFeed(currentPage).then(data => {
+        setTrendingFeed([...trendingFeed, ...data]);
+        setCurrentPage(previousState => previousState + 1);
+      });
     } catch (error) {
       console.error(error);
     } finally {
@@ -59,53 +45,46 @@ export default function NewsView() {
     <div className={styles.wrap}>
       {trendingFeed.length > 0 ? (
         trendingFeed.map(user => (
-          <div className={styles.list_noorder} key={shortid.generate()}>
-            <video width="300px" controls="controls">
-              <source src={user.videoUrl} type="video/mp4;" />
-              <track
-                src={user.authorMeta.avatar}
-                kind="captions"
-                srcLang="en"
-                label="english_captions"
-              />
-            </video>
-            <p>{user.text}</p>
+          <div className={styles.list_noorder} key={user.id}>
+            {user.video.playAddr ? (
+              <video width="300px" controls="controls">
+                <source src={user.video.playAddr} type="video/mp4;" />
+                <track kind="captions" srcLang="en" label="english_captions" />
+              </video>
+            ) : (
+              <Loader />
+            )}
+            <p>{user.author.signature}</p>
             <div className={styles.user_info}>
-              {user.authorMeta.avatar ? (
+              {user.author.avatarThumb ? (
                 <img
-                  key={shortid.generate()}
+                  key={user.video.id}
                   width="70px"
-                  src={user.authorMeta.avatar}
-                  alt={user.authorMeta.nickName}
+                  src={user.author.avatarThumb}
+                  alt={user.author.nickname}
                   className={styles.avatar}
                 />
               ) : (
                 <img
                   width="150px"
                   src={defaultImage}
-                  alt={user.authorMeta.nickName}
+                  alt={user.author.nickname}
                 />
               )}
-              <p key={shortid.generate()}>
+              <p>
                 <Link
                   className={styles.link}
-                  to={`/profile/${user.authorMeta.name}`}
+                  to={`/profile/${user.author.uniqueId}`}
                 >
-                  <b>{user.authorMeta.nickName}</b>
+                  <b>{user.author.nickname}</b>
                 </Link>
               </p>
             </div>
-            <div className={styles.tags}>
-              {user.hashtags &&
-                user.hashtags.map(tag => (
-                  <p key={shortid.generate()}> #{tag.name} </p>
-                ))}
-            </div>
             <p>
-              Comments: <b>{user.commentCount}</b>
+              Comments: <b>{user.stats.commentCount}</b>
             </p>
             <p>
-              Likes: <b>{user.diggCount}</b>
+              Likes: <b>{user.stats.diggCount}</b>
             </p>
           </div>
         ))
