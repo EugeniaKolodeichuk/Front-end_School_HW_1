@@ -56,7 +56,7 @@ export default function ProfileView() {
         </div>
       )}
       <div className={styles.wrap} key={userFeed.id}>
-        {userFeed.length ? (
+        {userFeed ? (
           userFeed.map(user => (
             <div key={user.createTime} className={styles.list_noorder}>
               <p>
