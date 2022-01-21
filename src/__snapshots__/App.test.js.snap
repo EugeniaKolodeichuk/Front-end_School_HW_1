@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsView render NewsView 1`] = `<div />`;
+
+exports[`ProfileView render ProfileView 1`] = `<div />`;

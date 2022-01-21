@@ -5,7 +5,6 @@
   "homepage": "https://EugeniaKolodeichuk.github.io/TikTuk",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
     "dotenv": "^11.0.0",
@@ -28,6 +27,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:watch": "jest --watch",
+    "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "predeploy": "npm run build",
@@ -52,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^12.1.2",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.25.3",
