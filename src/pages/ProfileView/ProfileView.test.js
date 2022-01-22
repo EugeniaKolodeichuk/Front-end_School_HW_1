@@ -2,6 +2,12 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ProfileView from './ProfileView';
 import ReactTestUtils from 'react-dom/test-utils';
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useParams: jest
+    .fn()
+    .mockReturnValue({ environment: 'dev', service: 'fakeService' }),
+}));
 /* import MatchMediaMock from 'jest-matchmedia-mock';
 
 new MatchMediaMock(); */
@@ -39,3 +45,16 @@ describe('ProfileView', () => {
     );
   });
 }); */
+
+/* describe('#ProfileView.js', () =>
+  it('render profile view', () => {
+    const { uniqueId } = 'ivan';
+    jest.mock('react-router-dom', () => ({
+      ...jest.requireActual('react-router-dom'),
+      useParams: jest
+        .fn()
+        .mockReturnValue({ environment: 'dev', service: 'fakeService' }),
+    }));
+    render(<ProfileView uniqueId={uniqueId} />);
+  }));
+ */

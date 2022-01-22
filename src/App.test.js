@@ -32,7 +32,7 @@ let container = null;
 
 beforeEach(() => {
   container = document.createElement('div');
-  document.body.appendChild(container);
+  document.body.append(container);
 });
 
 afterEach(() => {
@@ -61,7 +61,7 @@ describe('ProfileView', () => {
       </Router>,
     );
 
-    expect(screen.getByText(/Other posts created by/i)).toBeInTheDocument();
+    expect(screen.getByText(/other posts created by/i)).toBeInTheDocument();
   });
 });
 

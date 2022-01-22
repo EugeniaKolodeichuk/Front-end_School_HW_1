@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -15,8 +16,8 @@ const Stats = ({ commentCount = 0, diggCount = 0 }) => {
 };
 
 Stats.propTypes = {
-  commentCount: PropTypes.number.isRequired,
-  diggCount: PropTypes.number.isRequired,
+  commentCount: PropTypes.number,
+  diggCount: PropTypes.number,
 };
 
 export default Stats;

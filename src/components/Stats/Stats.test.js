@@ -1,6 +1,7 @@
-import Stats from './Stats';
-import '@testing-library/jest-dom';
+/* eslint-disable jest/valid-describe */
+import React from 'react';
 import { render, screen } from '@testing-library/react';
+import Stats from './Stats';
 
 describe(
   '#Stats.js',
@@ -9,8 +10,8 @@ describe(
       render(<Stats />);
 
       expect(screen.getByRole('list')).toBeInTheDocument();
-      expect(screen.getByText(/Comments:/i)).toHaveTextContent('0');
-      expect(screen.getByText(/Likes:/i)).toHaveTextContent('0');
+      expect(screen.getByText(/comments:/i)).toHaveTextContent('0');
+      expect(screen.getByText(/likes:/i)).toHaveTextContent('0');
     }),
 
   it('render comments and likes with custom props', () => {
@@ -19,7 +20,7 @@ describe(
     render(<Stats commentCount={commentCout} diggCount={likesCount} />);
 
     expect(screen.getByRole('list')).toBeInTheDocument();
-    expect(screen.getByText(/Comments:/i)).toHaveTextContent(`${commentCout}`);
-    expect(screen.getByText(/Likes:/i)).toHaveTextContent(`${likesCount}`);
+    expect(screen.getByText(/comments:/i)).toHaveTextContent(`${commentCout}`);
+    expect(screen.getByText(/likes:/i)).toHaveTextContent(`${likesCount}`);
   }),
 );
