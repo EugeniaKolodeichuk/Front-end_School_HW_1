@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
-/* import { Link } from 'react-router-dom'; */
-/* import defaultImage from '../../images/default.jpg'; */
 import styles from './NewsView.module.css';
 import Loader from '../../components/Loader/Loader';
 import { getTrendingFeed } from '../../service/app';
-/* import Video from '../../components/Video/Video';
-import Avatar from '../../components/Avatar/Avatar';
-import Stats from '../../components/Stats/Stats'; */
 import TrendingFeed from '../../components/TrendingFeed/TrendingFeed';
 
 export default function NewsView() {

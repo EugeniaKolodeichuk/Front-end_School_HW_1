@@ -1,12 +1,9 @@
 import React from 'react';
-import { unmountComponentAtNode } from 'react-dom';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import ProfileView from './pages/ProfileView/ProfileView';
-import NewsView from './pages/NewsView/NewsView';
 
 describe('#App.js', () => {
   it('render App page', () => {

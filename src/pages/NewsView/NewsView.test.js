@@ -5,6 +5,9 @@ import { createMemoryHistory } from 'history';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import NewsView from './NewsView';
+import axios from 'axios';
+
+jest.mock('axios');
 
 let container = null;
 
@@ -28,5 +31,13 @@ describe('#NewsView.js', () => {
       container,
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it('should have the correct content', async () => {
+    axios.get.mockImplementationOnce(() =>
+      Promise.resolve({ data: 'result-test' }),
+    );
+    render(<NewsView />);
+    screen.debug();
   });
 });

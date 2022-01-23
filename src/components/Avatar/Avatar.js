@@ -1,9 +1,9 @@
 import React from 'react';
-/* import PropTypes from 'prop-types'; */
+import PropTypes from 'prop-types';
 import styles from './Avatar.module.css';
 import defaultImage from '../../images/default.jpg';
 
-const Avatar = ({ avatarThumb, nickname }:{avatarThumb:string, nickname: string}) => {
+const Avatar = ({ avatarThumb, nickname }) => {
   return (
     <img
       width="70px"
@@ -14,10 +14,9 @@ const Avatar = ({ avatarThumb, nickname }:{avatarThumb:string, nickname: string}
   );
 };
 
-/* Avatar.propTypes = {
+Avatar.propTypes = {
   avatarThumb: PropTypes.string.isRequired,
   nickname: PropTypes.string.isRequired,
-}; */
+};
 
-/* export{} */
 export default Avatar;
