@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import VideoStats from '../VideoStats/VideoStats';
 import styles from './UserVideos.module.css';
-import defaultImage from '../../images/default.jpg';
 
 const UserVideos = ({ user }) => {
   return (
@@ -14,7 +13,7 @@ const UserVideos = ({ user }) => {
       />
       <img
         key={user.video.id}
-        src={user.video.originCover || defaultImage}
+        src={user.video.originCover}
         alt={user.desc}
         className={styles.main_element}
       />

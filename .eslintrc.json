@@ -29,7 +29,7 @@
         "more"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "ts", "tsx"] }],
         "linebreak-style": 0,
         "function-paren-newline": 0,
         "react/function-component-definition": "off",

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Avatar from '../Avatar/Avatar';
+import Avatar from '../Avatar/Avatar.tsx';
 import Stats from '../Stats/Stats';
 import Video from '../Video/Video';
 import styles from './TrendingFeed.module.css';

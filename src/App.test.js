@@ -8,83 +8,25 @@ import App from './App';
 import ProfileView from './pages/ProfileView/ProfileView';
 import NewsView from './pages/NewsView/NewsView';
 
-test('render App', () => {
-  render(<App />);
-  screen.debug();
-});
-
-/* describe('React Router', () => {
-  it('should render the trends page', () => {
-    const history = createMemoryHistory();
-    const { container, getByTestId } = render(
-      <Router history={history}>
-        <RouterComponent />
-      </Router>,
-    );
-    const navbar = getByTestId('navbar');
-    const link = getByTestId('link');
-    expect(container.innerHTML).toMatch('Trends');
-    expect(navbar).toContainElement(link);
-  });
-}); */
-
-let container = null;
-
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.append(container);
-});
-
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
-describe('ProfileView', () => {
-  test('render ProfileView', () => {
+describe('#App.js', () => {
+  it('render App page', () => {
     const history = createMemoryHistory();
     render(
       <Router history={history}>
-        <ProfileView />
+        <App />
       </Router>,
-      container,
     );
-    expect(container).toMatchSnapshot();
   });
 
-  test('check for a home link', () => {
+  it('render App debug', () => {
     const history = createMemoryHistory();
-    render(
-      <Router history={history}>
-        <ProfileView />
-      </Router>,
+    const { debug } = render(
+      <React.Suspense fallback="test loading">
+        <Router history={history}>
+          <App />
+        </Router>
+      </React.Suspense>,
     );
-
-    expect(screen.getByText(/other posts created by/i)).toBeInTheDocument();
-  });
-});
-
-describe('NewsView', () => {
-  test('render NewsView', () => {
-    const history = createMemoryHistory();
-    render(
-      <Router history={history}>
-        <NewsView />
-      </Router>,
-      container,
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  test('check for a home link', () => {
-    const history = createMemoryHistory();
-    render(
-      <Router history={history}>
-        <NewsView />
-      </Router>,
-    );
-
-    /* expect(screen.getByText(/Trends/i)).toBeInTheDocument(); */
+    debug();
   });
 });

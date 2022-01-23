@@ -35,7 +35,7 @@ export default function ProfileView() {
   }, [setUserFeed]);
 
   return (
-    <div key={userInfo.id}>
+    <div key={userInfo.id} data-testid="profile">
       <UserInfo
         uniqueId={userInfo.uniqueId}
         nickname={userInfo.nickname}
