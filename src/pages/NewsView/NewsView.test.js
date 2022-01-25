@@ -3,11 +3,20 @@ import { unmountComponentAtNode } from 'react-dom';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import NewsView from './NewsView';
 import axios from 'axios';
+import TrendingFeed from '../../components/TrendingFeed/TrendingFeed';
 
 jest.mock('axios');
+jest.mock('../../components/TrendingFeed/TrendingFeed', () => {
+  return {
+    __esmodule: true,
+    default: () => {
+      return <p>Mocked component</p>;
+    },
+  };
+});
 
 let container = null;
 
@@ -38,6 +47,7 @@ describe('#NewsView.js', () => {
       Promise.resolve({ data: 'result-test' }),
     );
     render(<NewsView />);
+    /* expect(axios.create).toBeCalled(); */
     screen.debug();
   });
 });
