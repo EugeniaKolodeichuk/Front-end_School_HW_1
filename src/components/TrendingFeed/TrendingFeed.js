@@ -5,11 +5,12 @@ import Avatar from '../Avatar/Avatar';
 import Stats from '../Stats/Stats';
 import Video from '../Video/Video';
 import styles from './TrendingFeed.module.css';
+import Loader from '../Loader/Loader';
 
 const TrendingFeed = ({ feed }) => {
-  return (
-    <div className={styles.list_noorder} key={feed.id}>
-      <Video playAddress={feed.video.downloadAddr} />
+  return feed.video.playAddress ? (
+    <div className={styles.list_noorder} key={feed.author.nickname}>
+      <Video playAddress={feed.video.playAddress} />
       <p>{feed.author.signature}</p>
       <div className={styles.feed_info}>
         <Avatar
@@ -27,6 +28,8 @@ const TrendingFeed = ({ feed }) => {
         diggCount={feed.stats.diggCount}
       />
     </div>
+  ) : (
+    <Loader />
   );
 };
 
