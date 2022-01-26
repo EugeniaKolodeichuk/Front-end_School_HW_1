@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './UserAvatar.module.css';
-import defaultImage from '../../images/default.jpg';
+import defaultImage from '../../static/default.jpg';
 
 const UserAvatar = ({ nickname, avatarMedium, signature }) => {
   return (

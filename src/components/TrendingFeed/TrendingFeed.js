@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Avatar from '../Avatar/Avatar';
-import Stats from '../Stats/Stats';
+import Stats from '../NewsStats/NewsStats';
 import Video from '../Video/Video';
 import styles from './TrendingFeed.module.css';
 import Loader from '../Loader/Loader';
