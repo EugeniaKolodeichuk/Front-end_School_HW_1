@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { unmountComponentAtNode } from 'react-dom';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import ProfileView from './ProfileView';
 
-let container = null;
+let container: HTMLDivElement | null;
 
 beforeEach(() => {
   container = document.createElement('div');
@@ -14,19 +14,20 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
+  if (container) {
+    unmountComponentAtNode(container);
+    container.remove();
+    container = null;
+  }
 });
 
 describe('#ProfileView.js', () => {
   it('render profile page', () => {
     const history = createMemoryHistory();
-    render(
+    const { container } = render(
       <Router history={history}>
         <ProfileView />
       </Router>,
-      container,
     );
     expect(container).toMatchSnapshot();
   });
@@ -41,4 +42,5 @@ describe('#ProfileView.js', () => {
 
     expect(screen.getByText(/other posts created by/i)).toBeInTheDocument();
   });
-});
+}); */
+export {};

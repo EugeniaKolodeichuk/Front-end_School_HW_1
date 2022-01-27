@@ -9,7 +9,7 @@ describe('#UserInfo.js', () =>
     const history = createMemoryHistory();
     const { container } = render(
       <Router history={history}>
-        <UserInfo />
+        <UserInfo uniqueId={'string'} avatarMedium={'string'} nickname={'string'} signature={'string'} />
       </Router>,
     );
 

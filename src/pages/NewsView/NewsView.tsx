@@ -1,15 +1,33 @@
 import React, { useState, useEffect } from 'react';
+import shortid from 'shortid';
 import styles from './NewsView.module.css';
 import Loader from '../../components/Loader/Loader';
 import { getTrendingFeed } from '../../service/app';
 import TrendingFeed from '../../components/TrendingFeed/TrendingFeed';
+import { ITrendingFeed } from '../../types/feedTypes';
 
+/* interface ITrendingFeed {
+  id: string;
+  video: {
+    cover: string;
+  };
+  author: {
+    signature: string;
+    avatarThumb: string;
+    nickname: string;
+    uniqueId: string;
+  };
+  stats: {
+    commentCount: number;
+    diggCount: number;
+  };
+} */
 export default function NewsView() {
-  const [trendingFeed, setTrendingFeed] = useState([]);
+  const [trendingFeed, setTrendingFeed] = useState<ITrendingFeed[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
 
-  const scrollHandler = event => {
+  const scrollHandler = (event: any): void => {
     if (
       event.target.documentElement.scrollHeight -
         (event.target.documentElement.scrollTop + window.innerHeight) <
@@ -41,9 +59,11 @@ export default function NewsView() {
   }, [fetching]);
 
   return (
-    <div className={styles.wrap}>
+    <div className={styles.wrap} key={shortid.generate()}>
       {trendingFeed.length > 0 ? (
-        trendingFeed.map(feed => <TrendingFeed key={feed.id} feed={feed} />)
+        trendingFeed.map(feed => (
+          <TrendingFeed key={shortid.generate()} feed={feed} />
+        ))
       ) : (
         <Loader />
       )}

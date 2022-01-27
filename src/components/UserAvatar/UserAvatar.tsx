@@ -1,10 +1,17 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
+/* import PropTypes from 'prop-types'; */
 import styles from './UserAvatar.module.css';
 import defaultImage from '../../static/default.jpg';
+import { IUserAvatar } from '../../types/userTypes';
 
-const UserAvatar = ({ nickname, avatarMedium, signature }) => {
+/* interface IUserAvatar {
+  nickname: string;
+  avatarMedium: string;
+  signature: string;
+} */
+
+const UserAvatar = ({ nickname, avatarMedium, signature }: IUserAvatar) => {
   return (
     <div className={styles.list_noorder}>
       <img
@@ -20,10 +27,10 @@ const UserAvatar = ({ nickname, avatarMedium, signature }) => {
   );
 };
 
-UserAvatar.propTypes = {
+/* UserAvatar.propTypes = {
   avatarMedium: PropTypes.string,
   nickname: PropTypes.string,
   signature: PropTypes.string,
-};
+}; */
 
 export default UserAvatar;

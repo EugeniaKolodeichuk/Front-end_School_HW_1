@@ -1,4 +1,5 @@
-import { API, getTrendingFeed, getUserFeed, getUserInfo } from './app';
+import { getTrendingFeed, getUserFeed, getUserInfo } from './app';
+import API from '../api/api';
 
 jest.mock('axios', () => {
   return {
@@ -10,11 +11,13 @@ jest.mock('axios', () => {
   };
 });
 
+const mockApi = API as jest.Mocked<typeof API>
+
 describe('#getTrendingFeed', () => {
   it('call get method', async () => {
-    API.get.mockImplementation(() => Promise.resolve({ data: 'test-data' }));
+    mockApi.get.mockImplementation(() => Promise.resolve({ data: 'test-data' }));
 
-    const response = await getTrendingFeed('test-url');
+    const response = await getTrendingFeed(1);
     expect(API.get).toBeCalledTimes(1);
     expect(response).toEqual('test-data');
   });
@@ -22,7 +25,7 @@ describe('#getTrendingFeed', () => {
 
 describe('#getUserFeed', () => {
   it('call get method', async () => {
-    API.get.mockImplementation(() => Promise.resolve({ data: 'test-data' }));
+    mockApi.get.mockImplementation(() => Promise.resolve({ data: 'test-data' }));
 
     const response = await getUserFeed('test-url');
     expect(API.get).toBeCalledTimes(1);
@@ -32,7 +35,7 @@ describe('#getUserFeed', () => {
 
 describe('#getUserInfo', () => {
   it('call get method', async () => {
-    API.get.mockImplementation(() => Promise.resolve({ data: 'test-data' }));
+    mockApi.get.mockImplementation(() => Promise.resolve({ data: 'test-data' }));
 
     const response = await getUserInfo('test-url');
     expect(API.get).toBeCalledTimes(1);

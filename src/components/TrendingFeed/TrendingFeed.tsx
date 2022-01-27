@@ -1,16 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+/* import PropTypes from 'prop-types'; */
 import Avatar from '../Avatar/Avatar';
 import Stats from '../NewsStats/NewsStats';
 import Video from '../Video/Video';
 import styles from './TrendingFeed.module.css';
 import Loader from '../Loader/Loader';
 
-const TrendingFeed = ({ feed }) => {
-  return feed.video.playAddress ? (
+interface ITrendingFeed {
+  feed: {
+    video: {
+      downloadAddr: string;
+    };
+    author: {
+      signature: string;
+      avatarThumb: string;
+      nickname: string;
+      uniqueId: string;
+    };
+    stats: {
+      commentCount: number;
+      diggCount: number;
+    };
+  };
+}
+
+const TrendingFeed = ({ feed }: ITrendingFeed) => {
+  return feed.video.downloadAddr ? (
     <div className={styles.list_noorder} key={feed.author.nickname}>
-      <Video playAddress={feed.video.playAddress} />
+      <Video downloadAddr={feed.video.downloadAddr} />
       <p>{feed.author.signature}</p>
       <div className={styles.feed_info}>
         <Avatar
@@ -33,7 +51,7 @@ const TrendingFeed = ({ feed }) => {
   );
 };
 
-TrendingFeed.propTypes = {
+/* TrendingFeed.propTypes = {
   feed: PropTypes.any.isRequired,
-};
+}; */
 export default TrendingFeed;

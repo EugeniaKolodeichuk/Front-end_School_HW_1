@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { unmountComponentAtNode } from 'react-dom';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
@@ -18,7 +18,7 @@ jest.mock('../../components/TrendingFeed/TrendingFeed', () => {
   };
 });
 
-let container = null;
+let container: HTMLDivElement | null;
 
 beforeEach(() => {
   container = document.createElement('div');
@@ -26,18 +26,19 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
+  if (container) {
+    unmountComponentAtNode(container);
+    container.remove();
+    container = null;
+  }
 });
 describe('#NewsView.js', () => {
   it('render news page', () => {
     const history = createMemoryHistory();
-    render(
+    const { container } = render(
       <Router history={history}>
         <NewsView />
       </Router>,
-      container,
     );
     expect(container).toMatchSnapshot();
   });
@@ -47,7 +48,8 @@ describe('#NewsView.js', () => {
       Promise.resolve({ data: 'result-test' }),
     );
     render(<NewsView />);
-    /* expect(axios.create).toBeCalled(); */
-    screen.debug();
+        screen.debug();
   });
-});
+}); */
+
+export {};

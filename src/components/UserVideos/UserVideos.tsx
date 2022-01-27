@@ -2,8 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import VideoStats from '../VideoStats/VideoStats';
 import styles from './UserVideos.module.css';
+import { IUserVideos } from '../../types/userTypes';
 
-const UserVideos = ({ user }) => {
+/* export interface IUserVideos{
+  user: {
+    video: {
+      id: number,
+      originCover: string,
+    },
+    desc: string,
+    stats: {
+      commentCount: number,
+      diggCount: number,
+      playCount: number,
+    },
+  }
+} */
+
+const UserVideos = ({ user }: IUserVideos) => {
   return (
     <div className={styles.list_noorder}>
       <VideoStats

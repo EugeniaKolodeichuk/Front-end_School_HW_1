@@ -4,7 +4,7 @@ import UserAvatar from './UserAvatar';
 
 describe('#UserAvatar.js', () =>
   it('render user avatar', () => {
-    render(<UserAvatar />);
+    render(<UserAvatar nickname={'string'} avatarMedium={'string'} signature={'string'} />);
 
     expect(screen.getByRole('img')).toBeInTheDocument();
   }));

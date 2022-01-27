@@ -3,16 +3,14 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Stats from './NewsStats';
 
-describe(
-  '#Stats.js',
-  () =>
-    it('render comments and likes with default props', () => {
-      render(<Stats />);
+describe('#Stats.js',() => {
+  it('render comments and likes with default props', () => {
+    render(<Stats />);
 
-      expect(screen.getByRole('list')).toBeInTheDocument();
-      expect(screen.getByText(/comments:/i)).toHaveTextContent('0');
-      expect(screen.getByText(/likes:/i)).toHaveTextContent('0');
-    }),
+    expect(screen.getByRole('list')).toBeInTheDocument();
+    expect(screen.getByText(/comments:/i)).toHaveTextContent('0');
+    expect(screen.getByText(/likes:/i)).toHaveTextContent('0');
+  });
 
   it('render comments and likes with custom props', () => {
     const commentCout = 5;
@@ -22,5 +20,5 @@ describe(
     expect(screen.getByRole('list')).toBeInTheDocument();
     expect(screen.getByText(/comments:/i)).toHaveTextContent(`${commentCout}`);
     expect(screen.getByText(/likes:/i)).toHaveTextContent(`${likesCount}`);
-  }),
-);
+  })
+})

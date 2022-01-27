@@ -4,7 +4,7 @@ import Avatar from './Avatar';
 
 describe('#Avatar.js', () =>
   it('render avatar on feed page', () => {
-    render(<Avatar />);
+    render(<Avatar avatarThumb={'string'} nickname={'string'} />);
 
     expect(screen.getByRole('img')).toBeInTheDocument();
   }));
