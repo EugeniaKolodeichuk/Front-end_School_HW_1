@@ -10,11 +10,11 @@ const Container = lazy(() =>
   import('./components/Container/Container' /*webpackChunkName: "container"*/),
 );
 const NewsView = lazy(() =>
-  import('./views/NewsView/NewsView' /*webpackChunkName: "news-view"*/),
+  import('./pages/NewsView/NewsView' /*webpackChunkName: "news-view"*/),
 );
 const ProfileView = lazy(() =>
   import(
-    './views/ProfileView/ProfileView' /*webpackChunkName: "profile-view"*/
+    './pages/ProfileView/ProfileView' /*webpackChunkName: "profile-view"*/
   ),
 );
 

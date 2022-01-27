@@ -1,0 +1,17 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import { createMemoryHistory } from 'history';
+import { Router } from 'react-router-dom';
+import Navigation from './Navigation';
+
+describe('#Navigation.js', () =>
+  it('render Navigation', () => {
+    const history = createMemoryHistory();
+    const { container } = render(
+      <Router history={history}>
+        <Navigation />
+      </Router>,
+    );
+
+    expect(container.firstChild).toHaveClass('navigation');
+  }));
