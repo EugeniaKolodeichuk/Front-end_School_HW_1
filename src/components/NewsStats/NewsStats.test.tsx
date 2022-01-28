@@ -3,9 +3,9 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Stats from './NewsStats';
 
-describe('#Stats.js',() => {
+describe('#Stats.js', () => {
   it('render comments and likes with default props', () => {
-    render(<Stats />);
+    render(<Stats commentCount={0} diggCount={0} />);
 
     expect(screen.getByRole('list')).toBeInTheDocument();
     expect(screen.getByText(/comments:/i)).toHaveTextContent('0');
@@ -20,5 +20,5 @@ describe('#Stats.js',() => {
     expect(screen.getByRole('list')).toBeInTheDocument();
     expect(screen.getByText(/comments:/i)).toHaveTextContent(`${commentCout}`);
     expect(screen.getByText(/likes:/i)).toHaveTextContent(`${likesCount}`);
-  })
-})
+  });
+});

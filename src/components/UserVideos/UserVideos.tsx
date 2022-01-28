@@ -1,23 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import VideoStats from '../VideoStats/VideoStats';
 import styles from './UserVideos.module.css';
 import { IUserVideos } from '../../types/userTypes';
-
-/* export interface IUserVideos{
-  user: {
-    video: {
-      id: number,
-      originCover: string,
-    },
-    desc: string,
-    stats: {
-      commentCount: number,
-      diggCount: number,
-      playCount: number,
-    },
-  }
-} */
 
 const UserVideos = ({ user }: IUserVideos) => {
   return (
@@ -36,10 +20,6 @@ const UserVideos = ({ user }: IUserVideos) => {
       <p>{user.desc}</p>
     </div>
   );
-};
-
-UserVideos.propTypes = {
-  user: PropTypes.any.isRequired,
 };
 
 export default UserVideos;

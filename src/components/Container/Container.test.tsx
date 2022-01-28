@@ -9,7 +9,7 @@ describe('#Container.js', () =>
     const history = createMemoryHistory();
     const { container } = render(
       <Router history={history}>
-        <Container />
+        <Container children={undefined} />
       </Router>,
     );
 

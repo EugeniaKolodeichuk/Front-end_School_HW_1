@@ -3,19 +3,23 @@ import React, { lazy, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 
-const AppBar = lazy(() =>
-  import('./components/AppBar/AppBar' /*webpackChunkName: "app-bar"*/),
+const AppBar = lazy(
+  () => import('./components/AppBar/AppBar' /*webpackChunkName: "app-bar"*/),
 );
-const Container = lazy(() =>
-  import('./components/Container/Container' /*webpackChunkName: "container"*/),
+const Container = lazy(
+  () =>
+    import(
+      './components/Container/Container' /*webpackChunkName: "container"*/
+    ),
 );
-const NewsView = lazy(() =>
-  import('./pages/NewsView/NewsView' /*webpackChunkName: "news-view"*/),
+const NewsView = lazy(
+  () => import('./pages/NewsView/NewsView' /*webpackChunkName: "news-view"*/),
 );
-const ProfileView = lazy(() =>
-  import(
-    './pages/ProfileView/ProfileView' /*webpackChunkName: "profile-view"*/
-  ),
+const ProfileView = lazy(
+  () =>
+    import(
+      './pages/ProfileView/ProfileView' /*webpackChunkName: "profile-view"*/
+    ),
 );
 
 export default function App() {

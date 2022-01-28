@@ -1,13 +1,6 @@
 /* eslint-disable react/require-default-props */
-/* import { number } from 'prop-types'; */
 import React from 'react';
-/* import PropTypes from 'prop-types'; */
 import { IStats } from '../../types/feedTypes';
-
-/* interface IStats {
-  commentCount: number;
-  diggCount: number;
-} */
 
 const Stats = ({ commentCount = 0, diggCount = 0 }: IStats) => {
   return (
@@ -21,10 +14,5 @@ const Stats = ({ commentCount = 0, diggCount = 0 }: IStats) => {
     </ul>
   );
 };
-
-/* Stats.propTypes = {
-  commentCount: PropTypes.number,
-  diggCount: PropTypes.number,
-}; */
 
 export default Stats;

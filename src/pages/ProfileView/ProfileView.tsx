@@ -5,72 +5,7 @@ import Loader from '../../components/Loader/Loader';
 import { getUserFeed, getUserInfo } from '../../service/app';
 import UserVideos from '../../components/UserVideos/UserVideos';
 import UserInfo from '../../components/UserInfo/UserInfo';
-
-interface IUserInfo {
-  id: string;
-  uniqueId: string;
-  nickname: string;
-  avatarMedium: string;
-  signature: string;
-  createTime: number;
-  video: {
-    id: number;
-    originCover: string;
-  };
-  desc: string;
-  stats: {
-    commentCount: number;
-    diggCount: number;
-    playCount: number;
-  };
-}
-
-/* interface IUserFeed {
-  id: string;
-  uniqueId: string;
-  nickname: string;
-  avatarMedium: string;
-  signature: string;
-  createTime?: any;
-  video: {
-    id: number;
-    originCover: string;
-  };
-  desc: string;
-  stats: {
-    commentCount: number;
-    diggCount: number;
-    playCount: number;
-  };
-}
- */
-/* interface IUser {
-  createTime?: any;
-  video?: {
-    id: number;
-    originCover: string;
-  };
-  desc?: string;
-  stats?: {
-    commentCount: number;
-    diggCount: number;
-    playCount: number;
-  };
-} */
-
-/* id: string;
-  video: {
-    cover: string;
-  };
-  author: {
-    signature: string;
-    avatarThumb: string;
-    nickname: string;
-    uniqueId: string;
-  };
-  stats: {
-    commentCount: number;
-    diggCount: number; */
+import { IUserInfo } from '../../types/userTypes';
 
 export default function ProfileView() {
   const { uniqueId } = useParams<{ uniqueId: string }>();
@@ -107,6 +42,18 @@ export default function ProfileView() {
         nickname={userInfo.nickname}
         avatarMedium={userInfo.avatarMedium}
         signature={userInfo.signature}
+        id=""
+        createTime={0}
+        video={{
+          id: 0,
+          originCover: '',
+        }}
+        desc=""
+        stats={{
+          commentCount: 0,
+          diggCount: 0,
+          playCount: 0,
+        }}
       />
       <div className={styles.wrap} key={userInfo.id}>
         {userFeed ? (

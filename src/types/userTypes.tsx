@@ -31,3 +31,22 @@ export interface IVideoStats {
   diggCount: number;
   commentCount: number;
 }
+
+export interface IUserInfo {
+  id: string;
+  uniqueId: string;
+  nickname: string;
+  avatarMedium: string;
+  signature: string;
+  createTime: number;
+  video: {
+    id: number;
+    originCover: string;
+  };
+  desc: string;
+  stats: {
+    commentCount: number;
+    diggCount: number;
+    playCount: number;
+  };
+}

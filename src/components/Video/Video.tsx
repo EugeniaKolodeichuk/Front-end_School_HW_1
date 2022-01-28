@@ -1,11 +1,6 @@
 import React from 'react';
-/* import PropTypes from 'prop-types'; */
 import Loader from '../Loader/Loader';
 import { VideoProperties } from '../../types/feedTypes';
-
-/* type Properties = {
-  cover: string
-} */
 
 const Video = ({ downloadAddr }: VideoProperties) => {
   return downloadAddr ? (
@@ -18,7 +13,4 @@ const Video = ({ downloadAddr }: VideoProperties) => {
   );
 };
 
-/* Video.propTypes = {
-  cover: PropTypes.string.isRequired,
-}; */
 export default Video;

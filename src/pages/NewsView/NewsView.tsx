@@ -6,22 +6,6 @@ import { getTrendingFeed } from '../../service/app';
 import TrendingFeed from '../../components/TrendingFeed/TrendingFeed';
 import { ITrendingFeed } from '../../types/feedTypes';
 
-/* interface ITrendingFeed {
-  id: string;
-  video: {
-    cover: string;
-  };
-  author: {
-    signature: string;
-    avatarThumb: string;
-    nickname: string;
-    uniqueId: string;
-  };
-  stats: {
-    commentCount: number;
-    diggCount: number;
-  };
-} */
 export default function NewsView() {
   const [trendingFeed, setTrendingFeed] = useState<ITrendingFeed[]>([]);
   const [currentPage, setCurrentPage] = useState(1);

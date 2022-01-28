@@ -2,7 +2,7 @@
   "name": "TikTuk",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://EugeniaKolodeichuk.github.io/TikTuk",
+  "homepage": "https://EugeniaKolodeichuk.github.io/Front-end_School_HW_1",
   "dependencies": {
     "@testing-library/user-event": "^12.8.3",
     "@types/jest": "^27.4.0",
