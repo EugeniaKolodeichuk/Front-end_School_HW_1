@@ -4,7 +4,7 @@ import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import AppBar from './AppBar';
 
-describe('#AppBar.js', () =>
+describe('#AppBar.tsx', () =>
   it('render AppBar', () => {
     const history = createMemoryHistory();
     const { container } = render(

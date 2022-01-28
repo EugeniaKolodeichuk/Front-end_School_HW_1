@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import VideoStats from './VideoStats';
 
-describe('#VideoStats.js', () => {
+describe('#VideoStats.tsx', () => {
   it('render comments and likes with default props', () => {
     render(<VideoStats playCount={0} diggCount={0} commentCount={0} />);
 

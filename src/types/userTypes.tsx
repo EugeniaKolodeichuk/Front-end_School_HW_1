@@ -50,3 +50,9 @@ export interface IUserInfo {
     playCount: number;
   };
 }
+export interface IUserProperties {
+  uniqueId: string;
+  avatarMedium: string;
+  nickname: string;
+  signature: string;
+}

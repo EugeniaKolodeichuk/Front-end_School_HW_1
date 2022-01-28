@@ -4,7 +4,7 @@ import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import Container from './Container';
 
-describe('#Container.js', () =>
+describe('#Container.tsx', () =>
   it('render Container', () => {
     const history = createMemoryHistory();
     const { container } = render(

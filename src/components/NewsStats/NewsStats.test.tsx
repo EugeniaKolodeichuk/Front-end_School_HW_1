@@ -3,7 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Stats from './NewsStats';
 
-describe('#Stats.js', () => {
+describe('#Stats.tsx', () => {
   it('render comments and likes with default props', () => {
     render(<Stats commentCount={0} diggCount={0} />);
 

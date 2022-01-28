@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import ProfileView from './ProfileView';
 
-describe('#ProfileView.js', () =>
+describe('#ProfileView.tsx', () =>
   it('render info about user', () => {
     const history = createMemoryHistory();
     render(

@@ -5,7 +5,7 @@ import { Router } from 'react-router-dom';
 import { IUserVideos } from '../../types/userTypes';
 import UserVideos from './UserVideos';
 
-describe('#UserVideos.js', () =>
+describe('#UserVideos.tsx', () =>
   it('render users info', () => {
     const user: IUserVideos['user'] = {
       video: {

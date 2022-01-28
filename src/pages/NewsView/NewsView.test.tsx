@@ -8,7 +8,7 @@ import NewsView from './NewsView';
 import axios from 'axios';
 import TrendingFeed from '../../components/TrendingFeed/TrendingFeed';
 
-describe('#NewsView.js', () =>
+describe('#NewsView.tsx', () =>
   it('render info about user', () => {
     const history = createMemoryHistory();
     render(

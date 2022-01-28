@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import TrendingFeed from './TrendingFeed';
 
-describe('#TrendingFeed.js', () =>
+describe('#TrendingFeed.tsx', () =>
   it('render TrendingFeed', () => {
     const feed = {
       video: {

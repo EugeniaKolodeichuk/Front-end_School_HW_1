@@ -4,12 +4,17 @@ import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import UserInfo from './UserInfo';
 
-describe('#UserInfo.js', () =>
+describe('#UserInfo.tsx', () =>
   it('render info about user', () => {
     const history = createMemoryHistory();
     const { container } = render(
       <Router history={history}>
-        <UserInfo uniqueId={'string'} avatarMedium={'string'} nickname={'string'} signature={'string'} />
+        <UserInfo
+          uniqueId={'string'}
+          avatarMedium={'string'}
+          nickname={'string'}
+          signature={'string'}
+        />
       </Router>,
     );
 

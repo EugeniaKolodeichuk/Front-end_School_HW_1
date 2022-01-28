@@ -2,7 +2,7 @@
 import React from 'react';
 import UserAvatar from '../UserAvatar/UserAvatar';
 import styles from './UserInfo.module.css';
-import { IUserInfo } from '../../types/userTypes';
+import { IUserProperties } from '../../types/userTypes';
 
 // eslint-disable-next-line object-curly-newline
 const UserInfo = ({
@@ -10,7 +10,7 @@ const UserInfo = ({
   avatarMedium,
   nickname,
   signature,
-}: IUserInfo) => {
+}: IUserProperties) => {
   return (
     <div key={uniqueId} className={styles.profile}>
       <UserAvatar

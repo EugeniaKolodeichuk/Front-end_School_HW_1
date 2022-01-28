@@ -42,18 +42,6 @@ export default function ProfileView() {
         nickname={userInfo.nickname}
         avatarMedium={userInfo.avatarMedium}
         signature={userInfo.signature}
-        id=""
-        createTime={0}
-        video={{
-          id: 0,
-          originCover: '',
-        }}
-        desc=""
-        stats={{
-          commentCount: 0,
-          diggCount: 0,
-          playCount: 0,
-        }}
       />
       <div className={styles.wrap} key={userInfo.id}>
         {userFeed ? (
