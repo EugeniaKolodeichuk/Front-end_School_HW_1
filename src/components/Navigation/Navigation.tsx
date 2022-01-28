@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
 const Navigation = () => (
-  <nav className={styles.navigation}>
+  <nav className={styles.navigation} data-testid="navigation">
     <NavLink
       exact
       to="/"
