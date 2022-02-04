@@ -1,11 +1,6 @@
-import React from 'react';
 import { Properties } from '../../types/types';
-import styles from './Container.module.css';
+import StyledContainer from './StyledContainer';
 
 export default function Container({ children }: Properties) {
-  return (
-    <div className={styles.container} data-testid="container">
-      {children}
-    </div>
-  );
+  return <StyledContainer data-testid="container">{children}</StyledContainer>;
 }

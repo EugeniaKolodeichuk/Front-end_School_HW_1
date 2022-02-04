@@ -1,18 +1,15 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styles from './Navigation.module.css';
+import { StyledNavigation, StyledLink } from './StyledNavigation';
+import ThemeToggle from '../Theme/ThemeToggle';
 
 const Navigation = () => (
-  <nav className={styles.navigation} data-testid="navigation">
-    <NavLink
-      exact
-      to="/"
-      className={styles.link}
-      activeClassName={styles.activeLink}
-    >
-      Trends
-    </NavLink>
-  </nav>
+  <>
+    <StyledNavigation data-testid="navigation">
+      <StyledLink exact to="/">
+        TikTuk trends
+      </StyledLink>
+    </StyledNavigation>
+    <ThemeToggle />
+  </>
 );
 
 export default Navigation;

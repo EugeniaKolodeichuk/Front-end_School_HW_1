@@ -1,7 +1,6 @@
 /* eslint-disable react/require-default-props */
-import React from 'react';
 import UserAvatar from '../UserAvatar/UserAvatar';
-import styles from './UserInfo.module.css';
+import { StyledProfile, StyledTitle } from './StyledUserInfo';
 import { IUserProperties } from '../../types/userTypes';
 
 // eslint-disable-next-line object-curly-newline
@@ -12,14 +11,14 @@ const UserInfo = ({
   signature,
 }: IUserProperties) => {
   return (
-    <div key={uniqueId} className={styles.profile}>
+    <StyledProfile key={uniqueId}>
       <UserAvatar
         avatarMedium={avatarMedium}
         nickname={nickname}
         signature={signature}
       />
-      <h2 className={styles.title}>Other posts created by {nickname}</h2>
-    </div>
+      <StyledTitle>Other posts created by {nickname}</StyledTitle>
+    </StyledProfile>
   );
 };
 

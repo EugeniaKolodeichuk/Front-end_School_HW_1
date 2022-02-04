@@ -1,5 +1,3 @@
-/* eslint-disable react/require-default-props */
-import React from 'react';
 import { IVideoStats } from '../../types/userTypes';
 
 const VideoStats = ({

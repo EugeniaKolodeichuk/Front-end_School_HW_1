@@ -1,6 +1,6 @@
 import { useParams } from 'react-router';
-import React, { useState, useEffect } from 'react';
-import styles from './ProfileView.module.css';
+import { useState, useEffect } from 'react';
+import StyledWrap from './StyledProfileView';
 import Loader from '../../components/Loader/Loader';
 import { getUserFeed, getUserInfo } from '../../service/app';
 import UserVideos from '../../components/UserVideos/UserVideos';
@@ -43,7 +43,7 @@ export default function ProfileView() {
         avatarMedium={userInfo.avatarMedium}
         signature={userInfo.signature}
       />
-      <div className={styles.wrap} key={userInfo.id}>
+      <StyledWrap key={userInfo.id}>
         {userFeed ? (
           userFeed.map((user: IUserInfo) => (
             <UserVideos key={user.createTime} user={user} />
@@ -51,7 +51,7 @@ export default function ProfileView() {
         ) : (
           <Loader />
         )}
-      </div>
+      </StyledWrap>
     </div>
   );
 }

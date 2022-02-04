@@ -1,9 +1,6 @@
-import React from 'react';
-import { unmountComponentAtNode } from 'react-dom';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
-import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import ProfileView from './ProfileView';
 
 describe('#ProfileView.tsx', () =>

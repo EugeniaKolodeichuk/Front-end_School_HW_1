@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import shortid from 'shortid';
-import styles from './NewsView.module.css';
+import StyledWrap from './StyledNewsView';
 import Loader from '../../components/Loader/Loader';
 import { getTrendingFeed } from '../../service/app';
 import TrendingFeed from '../../components/TrendingFeed/TrendingFeed';
@@ -43,7 +43,7 @@ export default function NewsView() {
   }, [fetching]);
 
   return (
-    <div className={styles.wrap} key={shortid.generate()}>
+    <StyledWrap key={shortid.generate()}>
       {trendingFeed.length > 0 ? (
         trendingFeed.map(feed => (
           <TrendingFeed key={shortid.generate()} feed={feed} />
@@ -51,6 +51,6 @@ export default function NewsView() {
       ) : (
         <Loader />
       )}
-    </div>
+    </StyledWrap>
   );
 }

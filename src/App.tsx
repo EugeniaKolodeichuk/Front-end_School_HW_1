@@ -1,7 +1,11 @@
-/* eslint-disable func-call-spacing */
-import React, { lazy, Suspense } from 'react';
+/* eslint-disable object-curly-newline */
+import { lazy, Suspense, createContext, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import Loader from './components/Loader/Loader';
+import GlobalStyle from './styled/Global';
+import { theme } from './components/Theme/StyledTheme';
+import { Theme, ContextTheme } from './types/types';
 
 const AppBar = lazy(
   () => import('./components/AppBar/AppBar' /*webpackChunkName: "app-bar"*/),
@@ -22,22 +26,35 @@ const ProfileView = lazy(
     ),
 );
 
+export const ThemeContext = createContext<ContextTheme>({
+  value: 'light',
+  setThemeValue: null,
+});
+
 export default function App() {
+  const [themeValue, setThemeValue] = useState<keyof Theme>('light'); // "light" | "dark"
   return (
-    <Suspense fallback={<Loader />}>
-      <Container>
-        <AppBar />
+    <>
+      <ThemeContext.Provider value={{ value: themeValue, setThemeValue }}>
+        <ThemeProvider theme={theme[themeValue]}>
+          <GlobalStyle />
+          <Suspense fallback={<Loader />}>
+            <Container>
+              <AppBar />
 
-        <Switch>
-          <Route path="/profile/:uniqueId">
-            <ProfileView />
-          </Route>
+              <Switch>
+                <Route path="/profile/:uniqueId">
+                  <ProfileView />
+                </Route>
 
-          <Route path="/">
-            <NewsView />
-          </Route>
-        </Switch>
-      </Container>
-    </Suspense>
+                <Route path="/">
+                  <NewsView />
+                </Route>
+              </Switch>
+            </Container>
+          </Suspense>
+        </ThemeProvider>
+      </ThemeContext.Provider>
+    </>
   );
 }

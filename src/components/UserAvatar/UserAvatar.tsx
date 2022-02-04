@@ -1,22 +1,23 @@
-/* eslint-disable react/require-default-props */
-import React from 'react';
-import styles from './UserAvatar.module.css';
+import {
+  StyledListNoorder,
+  StyledAvatar,
+  StyledTitle,
+} from './StyledUserAvatar';
 import defaultImage from '../../static/default.jpg';
 import { IUserAvatar } from '../../types/userTypes';
 
 const UserAvatar = ({ nickname, avatarMedium, signature }: IUserAvatar) => {
   return (
-    <div className={styles.list_noorder}>
-      <img
+    <StyledListNoorder>
+      <StyledAvatar
         key={nickname}
         width="150px"
         src={avatarMedium || defaultImage}
         alt={nickname}
-        className={styles.avatar}
       />
-      <h2 className={styles.title}>{nickname}</h2>
+      <StyledTitle>{nickname}</StyledTitle>
       <p>{signature}</p>
-    </div>
+    </StyledListNoorder>
   );
 };
 

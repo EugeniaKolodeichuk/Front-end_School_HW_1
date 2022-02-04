@@ -1,5 +1,5 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+/* eslint-disable jest/valid-describe */
+import { render } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import UserInfo from './UserInfo';
@@ -10,10 +10,10 @@ describe('#UserInfo.tsx', () =>
     const { container } = render(
       <Router history={history}>
         <UserInfo
-          uniqueId={'string'}
-          avatarMedium={'string'}
-          nickname={'string'}
-          signature={'string'}
+          uniqueId="string"
+          avatarMedium="string"
+          nickname="string"
+          signature="string"
         />
       </Router>,
     );

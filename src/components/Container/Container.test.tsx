@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/no-children-prop */
 import { render, screen } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';

@@ -1,5 +1,5 @@
-import Video from './Video';
 import { render, screen } from '@testing-library/react';
+import Video from './Video';
 
 describe('#Video.tsx', () =>
   it('render video', () => {

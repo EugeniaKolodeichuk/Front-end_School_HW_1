@@ -1,5 +1,4 @@
 /* eslint-disable jest/valid-describe */
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Stats from './NewsStats';
 

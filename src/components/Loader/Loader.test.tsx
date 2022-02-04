@@ -1,5 +1,5 @@
+import { render } from '@testing-library/react';
 import Loader from './Loader';
-import { render, screen } from '@testing-library/react';
 
 describe('#Loader.tsx', () =>
   it('render correctly Spinner component', () => {
