@@ -1,0 +1,2 @@
+(this.webpackJsonpTikTuk=this.webpackJsonpTikTuk||[]).push([[2],{111:function(n,t,i){"use strict";i.r(t),i.d(t,"default",(function(){return u}));var a,c=i(7),e=i(5).c.div(a||(a=Object(c.a)(["\n  max-width: 2400px;\n  margin: 0 auto 0 auto;\n  padding: 0 15px 0 15px;\n"]))),r=i(1);function u(n){var t=n.children;return Object(r.jsx)(e,{"data-testid":"container",children:t})}}}]);
+//# sourceMappingURL=container.072007a3.chunk.js.map
