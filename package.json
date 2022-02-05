@@ -34,15 +34,16 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run build --watch --hot",
+    "build": "webpack --color --progress",
     "test": "react-scripts test",
     "test:watch": "jest --watch",
     "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "type": "module"
   },
   "eslintConfig": {
     "extends": [
@@ -63,23 +64,34 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.0",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
     "@testing-library/jest-dom": "^5.16.1",
     "@types/react-router-dom": "^5.3.3",
     "@types/shortid": "^0.0.29",
     "@types/styled-components": "^5.1.21",
     "@types/uuid": "^8.3.4",
+    "esbuild": "^0.14.18",
+    "esbuild-loader": "^2.18.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-regexp": "^1.5.1",
     "eslint-plugin-unicorn": "^39.0.0",
+    "fork-ts-checker-webpack-plugin": "^7.0.0",
     "husky": "^7.0.2",
     "lint-staged": "^11.2.0",
-    "prettier": "^2.4.1"
+    "nodemon-webpack-plugin": "^4.7.1",
+    "prettier": "^2.4.1",
+    "webpack": "5.40.0",
+    "webpack-cli": "^4.9.2"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "*.{js,css,md}": "prettier --write"
-  }
+  },
+  "type": "module"
 }

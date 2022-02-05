@@ -1,5 +1,5 @@
 /* eslint-disable react/no-children-prop */
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
 import Container from './Container';
