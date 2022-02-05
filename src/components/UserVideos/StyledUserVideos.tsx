@@ -19,4 +19,6 @@ export const StyledListNoorder = styled.div`
 
 export const StyledMainElement = styled.img`
   padding: 15px;
+  display: flex;
+  width: 300px;
 `;
