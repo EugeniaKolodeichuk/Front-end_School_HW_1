@@ -1,0 +1,2 @@
+(this["webpackJsonpio.cordova.hellocordova"]=this["webpackJsonpio.cordova.hellocordova"]||[]).push([[2],{113:function(n,o,t){"use strict";t.r(o),t.d(o,"default",(function(){return d}));var a,c=t(10),i=t(8).c.div(a||(a=Object(c.a)(["\n  max-width: 2400px;\n  margin: 0 auto 0 auto;\n  padding: 0 15px 0 15px;\n"]))),r=t(1);function d(n){var o=n.children;return Object(r.jsx)(i,{"data-testid":"container",children:o})}}}]);
+//# sourceMappingURL=container.eb3de580.chunk.js.map
