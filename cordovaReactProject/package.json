@@ -1,8 +1,9 @@
 {
-  "name": "TikTuk",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://EugeniaKolodeichuk.github.io/Front-end_School_HW_1",
+  "name": "io.cordova.hellocordova",
+  "displayName": "HelloCordova",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
   "dependencies": {
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^12.8.3",
@@ -36,20 +37,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:watch": "jest --watch",
-    "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
-    "prepare": "husky install",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -62,24 +57,14 @@
       "last 1 safari version"
     ]
   },
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@types/react-router-dom": "^5.3.3",
-    "@types/shortid": "^0.0.29",
-    "@types/styled-components": "^5.1.21",
-    "@types/uuid": "^8.3.4",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-regexp": "^1.5.1",
-    "eslint-plugin-unicorn": "^39.0.0",
-    "husky": "^7.0.2",
-    "lint-staged": "^11.2.0",
-    "prettier": "^2.4.1"
+    "cordova-android": "^10.1.1"
   },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
   }
 }
